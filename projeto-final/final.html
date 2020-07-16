@@ -8,14 +8,8 @@
 <body>
   
   <script>
-    // var numeros = prompt('Insira 5 números, seprados por ","');
-    // numeros = numeros.split(',');
     var pares = []
     var impares = []
-
-    // document.write('Maior número: ', Math.max(numeros));
-    // document.write('Menor número: ', Math.min(numeros));
-
     
     do{
         var numeros = prompt('Insira 5 numeros, separando por ","');
@@ -34,16 +28,27 @@
     }
 
     document.write('São pares: ', pares)
-    document.write('<br>São impares: ', impares)
+    document.write('<br>São impares: ', impares, '<br>')
     
     var rep = []
-    for (i of numeros){
-      if (numeros.includes(i) && rep.includes(i) == false){
-        rep.push(i)
-      }
+    var count = 1
+    numeros.sort()
+    for (i = 0; i < numeros.length; i++){
+        
+        if (numeros[i] == numeros[i+1]){
+            count++
+        }
+        else{
+          if(count > 1){
+            rep.push([numeros[i], count])
+            count = 1
+          }
+        }
     }
-    document.write('<br>', rep.join(' '), ' se repetem')
-  
+
+    for (i = 0; i < rep.length; i++){
+      document.write(`<br>O número ${rep[i][0]} se repete ${rep[i][1]} vezes`)
+    }
 
 
 
