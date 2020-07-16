@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    // var numeros = prompt('Insira 5 números, seprados por ","');
+    // numeros = numeros.split(',');
+    var pares = []
+    var impares = []
+
+    // document.write('Maior número: ', Math.max(numeros));
+    // document.write('Menor número: ', Math.min(numeros));
+
+    
+    do{
+        var numeros = prompt('Insira 5 numeros, separando por ","');
+        numeros = numeros.split(',')
+      } while(numeros.length != 5) 
+      
+    document.write ('Seus números são: ', numeros, '<br><br>')
+    document.write ('Maior número: ', Math.max(...numeros), '<br>')
+    document.write ('Menor número: ', Math.min(...numeros), '<br><br>')
+
+    for (i of numeros){
+      if (i % 2)
+        impares.push(i)
+      else
+        pares.push(i)
+    }
+
+    document.write('São pares: ', pares)
+    document.write('<br>São impares: ', impares)
+    
+    var rep = []
+    for (i of numeros){
+      if (numeros.includes(i) && rep.includes(i) == false){
+        rep.push(i)
+      }
+    }
+    document.write('<br>', rep.join(' '), ' se repetem')
+  
+
+
+
+
+    
+
+  </script>
+
+</body>
+</html>
